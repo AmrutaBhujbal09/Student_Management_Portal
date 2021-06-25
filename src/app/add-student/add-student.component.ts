@@ -26,7 +26,7 @@ export class AddStudentComponent implements OnInit {
       //does the validation like required field validators,password mismatching validator, email validator.
       fname:['',[Validators.required]],
       lname:['',[Validators.required]],
-      age:['',[Validators.required]],
+      age:['',[Validators.required,Validators.pattern(/^(?:[3-9]|[0-9][0-9]|50)$/)]],
       dob:['',[Validators.required,Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
       Gender_Choice:['',[Validators.required]],
       //:['',[Validators.required]]
@@ -37,24 +37,46 @@ export class AddStudentComponent implements OnInit {
       first_name:'',
       last_name:'',
       age:'',
-      dob:'',
+      date_of_birth:'',
       Gender_Choice:'FEMALE',
     }
 
   }
 
   ngOnInit(): void {
+   this.futurDateDisable();
   }
+
+  maxDate:any;
+
+  futurDateDisable()
+  {
+    var date:any =new Date();
+    var todayDate:any=date.getDate();
+    var month:any=date.getMonth() +1;
+    var year:any=date.getFullYear();
+
+    if(todayDate <10)
+    {
+      todayDate='0'+todayDate;
+    }
+    if(month < 10)
+    {
+      month='0'+month;
+    }
+    this.maxDate=year + "-" + month + "-" +todayDate;
+    console.log(this.maxDate);
+
+  }
+
 
   onSubmit() 
   {
 
     this.studentPayload.first_name =this.addstudentForm.get('fname')?.value;
     this.studentPayload.last_name =this.addstudentForm.get('lname')?.value;
-    this.studentPayload.dob =this.addstudentForm.get('dob')?.value;
-    this.studentPayload.age=this.addstudentForm.get('age')?.value;
-   
-    
+    this.studentPayload.date_of_birth =this.addstudentForm.get('dob')?.value;
+    this.studentPayload.age=this.addstudentForm.get('age')?.value.toString();
     this.studentPayload.Gender_Choice=this.addstudentForm.get('Gender_Choice')?.value;
   
     
@@ -68,8 +90,8 @@ export class AddStudentComponent implements OnInit {
       {
       console.log("hi");
       console.log(data);
-      alert("Employee added successfully !!");
-      //this.router.navigateByUrl("/home");
+      alert("Student is added successfully !!");
+      this.router.navigateByUrl("/home");
 
     } ,error => {
       alert('Unsuccessfull');

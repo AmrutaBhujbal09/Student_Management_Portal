@@ -9,13 +9,19 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HttpClientModule } from '@angular/common/http';
+import { AddSubjectComponent } from './add-subject/add-subject.component';
+import { HomeComponent } from './home/home.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    AddSubjectComponent,
+    HomeComponent,
+    UpdateStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
     RouterModule.forRoot([
+      {path:'',component:HomeComponent},
       {path:'add-student',component:AddStudentComponent},
+      {path:'add-subject' ,component:AddSubjectComponent},
+      {path:'home',component:HomeComponent},
+      {path:'update-student',component:UpdateStudentComponent}
     ]),
   ],
   providers: [],
