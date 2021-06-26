@@ -13,7 +13,8 @@ import {LocalStorageService} from 'ngx-webstorage';
 export class HomeComponent implements OnInit {
 
   add:any ;
-
+  addStudent?: Observable<Array<StudentPayload>>;
+  
   constructor(private addstudentService:AddStudentService,private router:Router,private localstorage:LocalStorageService) 
   {
 
@@ -59,5 +60,21 @@ export class HomeComponent implements OnInit {
     }
     
   }
+
+
+  updateStudent(id:any) 
+  {
+
+  console.log('function gets called')
+    localStorage.setItem('student_id',id)  
+  if (id)
+    {
+
+    this.router.navigateByUrl("/update-profile");
+    // this.router.navigate(['/add-services'])
+  
+    }  
+  }
+
 
 }

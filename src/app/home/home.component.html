@@ -22,6 +22,7 @@
                         <td><p>{{users.date_of_birth}}</p></td>
                         <td><p>{{users.Gender_Choice}}</p></td>
                         <td><button class="btn btn-sm btn-danger"><a (click)="deleteStudent(users.id)"><i class="fa fa-remove"></i></a>Delete</button></td>
+                        <td><button class="btn btn-sm btn-warning"><a target = "_blank" (click)="updateStudent(users.id)"><i class="fa fa-edit"></i></a>Edit</button></td>
                     </tr>
                 </ng-container>
             </tbody>

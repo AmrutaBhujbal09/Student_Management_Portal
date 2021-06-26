@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
 import { HomeComponent } from './home/home.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
+import { MarkComponent } from './mark/mark.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UpdateStudentComponent } from './update-student/update-student.componen
     AddStudentComponent,
     AddSubjectComponent,
     HomeComponent,
-    UpdateStudentComponent
+    UpdateStudentComponent,
+    MarkComponent
   ],
   imports: [
     BrowserModule,
