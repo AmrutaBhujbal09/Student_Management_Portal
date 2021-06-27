@@ -6,6 +6,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { StudentPayload} from '../add-student/student-payload';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient,HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-update-student',
@@ -17,6 +18,8 @@ export class UpdateStudentComponent implements OnInit {
   updatestudentForm:FormGroup;
   updatePayload:Student;
   id:any;
+  
+  
   addStudent?: Observable<Array<StudentPayload>>;
 
   constructor(private formBuilder: FormBuilder,private localStorage:LocalStorageService,private addstudentService:AddStudentService,private router:Router) 
@@ -33,7 +36,7 @@ export class UpdateStudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let localData = this.localStorage.retrieve('loginData');
+    //let localData = this.localStorage.retrieve('loginData');
     this.id = Number(localStorage.getItem('student_id'))
 
 

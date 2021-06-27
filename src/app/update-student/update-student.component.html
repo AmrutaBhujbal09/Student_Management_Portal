@@ -2,7 +2,7 @@
     <form [formGroup]="updatestudentForm" class="form-signin form-content-width border mt-5  p-8" style="width:45%;border-style:solid;border: width 8px
     ;border-color:hsla(9,100%, 0%,0);border-radius: 25px; padding: 20px;background:white;" (ngSubmit)="onSubmit()">
        
-        <p class="h4 text-center mt-1 mb-3">Add Student</p>
+        <p class="h4 text-center mt-1 mb-3">Update Student</p>
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -53,7 +53,7 @@
     
         
         
-           <button class="btn btn-success btn-block mt-4" [disabled]="!updatestudentForm.valid" type="submit">Add</button> 
+            <button class="btn btn-success btn-block mt-4"   (click)="onSubmit()"  type="submit">Update</button> 
            
         </div>
     </form>
