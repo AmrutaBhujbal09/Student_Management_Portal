@@ -34,6 +34,10 @@ export class HomeComponent implements OnInit {
       alert("Unable to fetch records");
       
       })
+
+      
+
+
    }
 
   
@@ -75,6 +79,17 @@ export class HomeComponent implements OnInit {
     // this.router.navigate(['/add-services'])
   
     }  
+  }
+
+
+  getSubInfo(id:any)
+  {
+    console.log('getStudentInfi() methods gets called')
+    localStorage.setItem('student_id',id)
+    if (id)
+    {
+      this.router.navigateByUrl("/mark");
+    }
   }
 }
 

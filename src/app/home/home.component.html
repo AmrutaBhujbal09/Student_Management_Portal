@@ -10,7 +10,9 @@
                     <th>Age</th>
                     <th>Date_Of_Birth</th>
                     <th>Gender</th>
-                    <th>Action</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                    <th>Marks</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,7 +25,7 @@
                         <td><p>{{users.Gender_Choice}}</p></td>
                         <td><button class="btn btn-sm btn-danger"><a (click)="deleteStudent(users.id)"><i class="fa fa-remove"></i></a>Delete</button></td>
                         <td><button class="btn btn-sm btn-warning"><a target = "_blank" (click)="updateStudent(users.id)"><i class="fa fa-edit"></i></a>Edit</button></td>
-                        <!--<td><button class="btn btn-sm btn-danger"><a (click)="getSubInfo(users.id)"><i class="fa fa-remove"></i></a>Delete</button></td>-->
+                        <td><button class="btn btn-sm btn-danger"><a (click)="getSubInfo(users.id)"><i class="fa fa-remove"></i></a>mark</button></td>
                     </tr>
                 </ng-container>
             </tbody>

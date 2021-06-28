@@ -1,4 +1,25 @@
-<p>mark works!</p>
 
+<div class="content">
+    <div class="container">
+        
+        <table cellspacing ="15" style="width:100%" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Subject Name</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let subject_app of sub">
+                    <tr>
+                        <td style="text-align: center;"><p>{{subject_app.subject_name}}</p></td>
+                        <td><p>{{subject_app.marks}}</p></td>
+                        
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
 
-
+        
+    </div>
+</div>
