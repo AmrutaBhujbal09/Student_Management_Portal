@@ -37,7 +37,8 @@ import { MarkComponent } from './mark/mark.component';
       {path:'add-student',component:AddStudentComponent},
       {path:'add-subject' ,component:AddSubjectComponent},
       {path:'home',component:HomeComponent},
-      {path:'update-student',component:UpdateStudentComponent}
+      {path:'update-student',component:UpdateStudentComponent},
+      {path:'mark',component:MarkComponent}
     ]),
   ],
   providers: [],

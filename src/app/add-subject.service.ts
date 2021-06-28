@@ -22,6 +22,10 @@ export class AddSubjectService {
     return this.httpClient.post(this.baseUrl + 'subject/AddSub',subjectPayload, { headers:headers });
   }  
 
-  
+ // getSubjectListById(id:number):Observable<any> {
+   // let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
+    //return this.httpClient.get(this.baseUrl + 'subject/getStudentDetails/' + id , { headers:headers });
+
+  //}
 
 }

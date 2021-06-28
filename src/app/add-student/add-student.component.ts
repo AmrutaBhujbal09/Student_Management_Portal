@@ -44,7 +44,7 @@ export class AddStudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.futurDateDisable();
+   this.futurDateDisable()
   }
 
   maxDate:any;

@@ -57,7 +57,7 @@ export class AddSubjectComponent implements OnInit {
       console.log("hi");
       console.log(data);
       alert("Subject added successfully !!");
-      //this.router.navigateByUrl("/home");
+      this.router.navigateByUrl("/mark");
 
     } ,error => {
       alert('Unsuccessfull');

@@ -5,6 +5,8 @@ import { StudentPayload } from '../add-student/student-payload';
 import { Router } from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
 
+import {AddSubjectService} from '../add-subject.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,9 +15,9 @@ import {LocalStorageService} from 'ngx-webstorage';
 export class HomeComponent implements OnInit {
 
   add:any ;
-  addStudent?: Observable<Array<StudentPayload>>;
+  addstudent?:any;
   
-  constructor(private addstudentService:AddStudentService,private router:Router,private localstorage:LocalStorageService) 
+  constructor(private addstudentService:AddStudentService,private addsubjectService:AddSubjectService,private router:Router,private localstorage:LocalStorageService) 
   {
 
   }
@@ -32,8 +34,7 @@ export class HomeComponent implements OnInit {
       alert("Unable to fetch records");
       
       })
-
-  }
+   }
 
   
   deleteStudent(id:Number)
@@ -66,15 +67,24 @@ export class HomeComponent implements OnInit {
   {
 
   console.log('function gets called')
-    localStorage.setItem('student_id',id)  
+  localStorage.setItem('student_id',id)  
   if (id)
     {
 
-    this.router.navigateByUrl("/update-profile");
+    this.router.navigateByUrl("/update-student");
     // this.router.navigate(['/add-services'])
   
     }  
   }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+

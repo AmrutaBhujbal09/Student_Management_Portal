@@ -29,7 +29,7 @@
 
 
             <div class="form-group">
-                <input type="date" id="dob" [formControlName]="'dob'" placeholder="Date Of Birth" class="form-control mb-3" autofocus="">
+                <input type="date" id="dob" max="{{maxDate}}" [formControlName]="'dob'" placeholder="Date Of Birth" class="form-control mb-3" autofocus="">
                 <label *ngIf="updatestudentForm?.get('dob')?.hasError('required')" style="font-size:16px;color:red;">Date Of Birth is required
                 </label>
             </div>

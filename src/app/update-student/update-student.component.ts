@@ -15,12 +15,12 @@ import { HttpClient,HttpHeaders} from '@angular/common/http';
 })
 export class UpdateStudentComponent implements OnInit {
 
-  updatestudentForm:FormGroup;
+  updatestudentForm:any;
   updatePayload:Student;
   id:any;
   
   
-  addStudent?: Observable<Array<StudentPayload>>;
+  addstudent?:any;
 
   constructor(private formBuilder: FormBuilder,private localStorage:LocalStorageService,private addstudentService:AddStudentService,private router:Router) 
   {
@@ -36,9 +36,9 @@ export class UpdateStudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //let localData = this.localStorage.retrieve('loginData');
+    let localData = this.localStorage.retrieve('loginData');
     this.id = Number(localStorage.getItem('student_id'))
-
+    this.futurDateDisable();
 
     this.getStudent()
     
@@ -52,14 +52,37 @@ export class UpdateStudentComponent implements OnInit {
       fname:[this.updatePayload.first_name,[Validators.required]],
       lname:[this.updatePayload.last_name,[Validators.required]],
       //cell:[localData.mobile,[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      age:['',[Validators.required,Validators.pattern(/^(?:[3-9]|[0-9][0-9]|50)$/)]],
-      dob:['',[Validators.required,Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
-      Gender_Choice:['',[Validators.required]],
+      age:[this.updatePayload.age,[Validators.required,Validators.pattern(/^(?:[3-9]|[0-9][0-9]|50)$/)]],
+      dob:[this.updatePayload.date_of_birth,[Validators.required,Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
+      Gender_Choice:[this.updatePayload.Gender_Choice,[Validators.required]],
       
       
     });
 
    
+  }
+
+
+  maxDate:any;
+
+  futurDateDisable()
+  {
+    var date:any =new Date();
+    var todayDate:any=date.getDate();
+    var month:any=date.getMonth() +1;
+    var year:any=date.getFullYear();
+
+    if(todayDate <10)
+    {
+      todayDate='0'+todayDate;
+    }
+    if(month < 10)
+    {
+      month='0'+month;
+    }
+    this.maxDate=year + "-" + month + "-" +todayDate;
+    console.log(this.maxDate);
+
   }
 
 
@@ -74,9 +97,9 @@ export class UpdateStudentComponent implements OnInit {
         fname:[this.updatePayload.first_name,[Validators.required]],
         lname:[this.updatePayload.last_name,[Validators.required]],
         //cell:[localData.mobile,[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-        age:['',[Validators.required,Validators.pattern(/^(?:[3-9]|[0-9][0-9]|50)$/)]],
-        dob:['',[Validators.required,Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
-        Gender_Choice:['',[Validators.required]],
+        age:[this.updatePayload.age,[Validators.required,Validators.pattern(/^(?:[3-9]|[0-9][0-9]|50)$/)]],
+        dob:[this.updatePayload.date_of_birth,[Validators.required,Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
+        Gender_Choice:[this.updatePayload.Gender_Choice,[Validators.required]],
         
         
       
@@ -102,7 +125,7 @@ export class UpdateStudentComponent implements OnInit {
     
 
     this.addstudentService.updateStudent(this.updatePayload,this.id).subscribe(data => {
-      alert("Employee updated successfully !!!")
+      alert("Student record is updated successfully !!!")
       this.router.navigateByUrl("/home");
       console.log("welcome");
     } , error =>{
