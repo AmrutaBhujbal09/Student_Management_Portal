@@ -15,28 +15,26 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <input type="text" id="mark" [formControlName]="'mark'" placeholder="Mark" class="form-control mb-3" autofocus="">
+                    <input type="number" id="mark" [formControlName]="'mark'" placeholder="Mark" class="form-control mb-3" autofocus="">
                     <label *ngIf="addsubjectForm?.get('mark')?.touched && addsubjectForm?.get('mark')?.hasError('required')"
                     style="font-size:16px;color:red;">mark is required</label>
                 </div>
                
             </div>
             
-            <!--<div class="form-group">
-                <input type="text" id="mark" [formControlName]="'mark'" placeholder="mark" class="form-control mb-3" autofocus=""> 
-                <label *ngIf="addsubjectForm?.get('mark')?.hasError('required')" style="font-size:16px;color:red;">mark is required
-                </label>
-            </div>-->
-
-
             <div class="form-group">
                 <input type="number" id="student_id" [formControlName]="'student_id'" placeholder="Student Id" class="form-control mb-3" autofocus=""> 
-                <label *ngIf="addsubjectForm?.get('student_id')?.hasError('required')" style="font-size:16px;color:red;">mark is required
+                <label *ngIf="addsubjectForm?.get('student_id')?.hasError('required')" style="font-size:16px;color:red;">Student Id is required
                 </label>
             </div>
 
-           <button class="btn btn-success btn-block mt-8 btn-lg" [disabled]="!addsubjectForm.valid" type="submit">Add</button> 
            
+           <div style="position: relative;top: 2px;left: 140px;">
+           <button class="btn btn-success btn-block mt-8 my-small-btn" [disabled]="!addsubjectForm.valid" type="submit" >Add Subject</button>    
+           </div>
+        
+
         </div>
+        
     </form>
 </diV>
