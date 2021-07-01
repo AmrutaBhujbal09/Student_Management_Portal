@@ -27,17 +27,21 @@ export class AddSubjectComponent implements OnInit {
       student_id:['',[Validators.required]]
     });//group
 
+
+       //intialises subjectpayload fields
+
     this.subjectPayload={
       subject_name:'',
       marks:'',
       student_id:'',
     }
 
-  }
+  }//constructor
 
   ngOnInit(): void {
   }
 
+  //data binding after user click on submit button.All form data  bind with specific payload. 
   onSubmit() 
   {
 
@@ -51,21 +55,22 @@ export class AddSubjectComponent implements OnInit {
 
 
 
-  
+    //call api here  
+    //call is given to addStudent() which is define inside SubjectService.
     this.addsubjectService.addStudent(this.subjectPayload).subscribe(data => 
       {
       console.log("hi");
       console.log(data);
-      alert("Subject added successfully !!");
-      this.router.navigateByUrl("/mark");
+      alert("Subject is added successfully !!");
+      this.router.navigateByUrl("/home");
 
     } ,error => {
       alert('Unsuccessfull');
     
     })
-  }
+  }//onSubmit()
 
 
 
 
-}
+}//class
